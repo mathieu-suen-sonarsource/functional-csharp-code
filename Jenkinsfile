@@ -2,7 +2,7 @@ node {
   stage('SCM') {
     checkout scm
   }
-  stage('SonarQube Analysis') {
+  stage('SonarQube t Analysis') {
     def msbuildHome = tool 'Default MSBuild'
     def scannerHome = tool 'SonarScanner for MSBuild'
     withSonarQubeEnv() {
