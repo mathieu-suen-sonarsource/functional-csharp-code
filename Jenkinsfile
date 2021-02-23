@@ -3,8 +3,9 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
+    def msbuildHome = tool "sonarscanner"
     withSonarQubeEnv() {
-      sh "echo `ls -al $HOME`"
+      sh "echo `ls -al ${msbuildHome}`"
       sh "dotnet tool list -g"
       sh "dotnet sonarscanner begin /k:\"functional-csharp-code\""
       sh "dotnet build ."
