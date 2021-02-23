@@ -7,11 +7,11 @@ node {
     withSonarQubeEnv() {
       sh "echo `ls -al ${msbuildHome}`"
       sh "dotnet tool list -g"
-      sh "ls $HOME/.dotnet/tools"
+      sh "ls -al $HOME/.dotnet/tools"
       sh "export DOTNET_ROOT=/usr/share/dotnet/"
-      sh "dotnet sonarscanner begin /k:\"functional-csharp-code\""
+      sh "$HOME/.dotnet/tools/dotnet-sonarscanner begin /k:\"functional-csharp-code\""
       sh "dotnet build ."
-      sh "dotnet sonarscanner end"
+      sh "$HOME/.dotnet/tools/dotnet-sonarscanner end"
     }
   }
 }
